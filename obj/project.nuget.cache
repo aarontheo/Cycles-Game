@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NY5HHRWlbrRfb162Dyae7bWXkF9GBYyd4j8YcIRcyGWCvA1GnESqz8IE74vJAa+cTb5w+smeLoqgS6GdcPF4eQ==",
+  "success": true,
+  "projectFilePath": "/Users/aarontheobald/Desktop/Projects/C#/Cycles_Game/Cycles_Game.csproj",
+  "expectedPackageFiles": [
+    "/Users/aarontheobald/.nuget/packages/raylib-cs/4.0.0.1/raylib-cs.4.0.0.1.nupkg.sha512",
+    "/Users/aarontheobald/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
