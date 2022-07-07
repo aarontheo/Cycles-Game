@@ -1,19 +1,21 @@
 ﻿using Cycles_Game.Directing;
 using Cycles_Game.Services;
-using Cycles_Game.Game.Casting;
+using Cycles_Game.Game.Grid;
+using Cycles_Game.Game.Grid.CellTypes;
 using Raylib_cs;
 
 int width = 400;
 int height = 400;
-int FPS = 60;
+int cellSize = 10;
+int FPS = 10;
 Color bgColor = Color.BLACK;
-string title = "S N E K";
+string title = "Cycles";
 
 VideoService videoService = new VideoService(width,height,bgColor,title,FPS);
 Director director = new Director(videoService);
 
-Cast cast = new Cast();
-Snake snake = new Snake(width / 2, height / 2, 10, 10, 10, Color.RED);
-cast.Add("snakes", snake);
-cast.Add("text", new TextActor(20, 20, "Hello!"));
-director.StartGame(cast);
+Grid grid = new Grid(height/cellSize,width/cellSize,cellSize);
+
+Cycle cycle = new Cycle(20, 20, Color.BLUE,new KeyboardKey[]{KeyboardKey.KEY_W, KeyboardKey.KEY_A, KeyboardKey.KEY_S, KeyboardKey.KEY_D});
+grid.SetCell(20, 20, cycle);
+director.StartGame(grid);

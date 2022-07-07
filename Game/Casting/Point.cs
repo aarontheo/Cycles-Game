@@ -27,6 +27,18 @@ namespace Cycles_Game.Game.Casting
         {
             return new Point(a.x * b, a.y * b);
         }
+        public static bool operator ==(Point a,Point b)
+        {
+            if (a.x == b.x & a.y == b.y)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator !=(Point a,Point b)
+        {
+            return !(a == b);
+        }
         public static Vect operator *(Point a, float b)
         {
             return new Vect(a.x * b, a.y * b);

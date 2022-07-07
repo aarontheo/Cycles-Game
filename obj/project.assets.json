@@ -124,11 +124,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/aarontheobald/Desktop/Projects/C#/Cycles_Game/Cycles_Game.csproj",
-      "projectName": "Cycles_Game",
-      "projectPath": "/Users/aarontheobald/Desktop/Projects/C#/Cycles_Game/Cycles_Game.csproj",
+      "projectUniqueName": "/Users/aarontheobald/Desktop/Projects/C#/Cycles-Game/Cycles-Game.csproj",
+      "projectName": "Cycles-Game",
+      "projectPath": "/Users/aarontheobald/Desktop/Projects/C#/Cycles-Game/Cycles-Game.csproj",
       "packagesPath": "/Users/aarontheobald/.nuget/packages/",
-      "outputPath": "/Users/aarontheobald/Desktop/Projects/C#/Cycles_Game/obj/",
+      "outputPath": "/Users/aarontheobald/Desktop/Projects/C#/Cycles-Game/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/aarontheobald/.nuget/NuGet/NuGet.Config"

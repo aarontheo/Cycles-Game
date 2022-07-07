@@ -32,25 +32,31 @@ namespace Cycles_Game.Game.Casting
         /// <param name="maxX"></param>
         /// <param name="maxY"></param>
         /// <param name="wraparound">Ok so this parameter isn't used in </param>
-        public void Wraparound(int maxX,int maxY)
+        public virtual bool Wraparound(int maxX,int maxY)
         {
             //this bit allows for screen wraparound
+            bool wrapped = false;
             if (pos.x < 0 - size.x)
             {
                 pos.x = maxX;
+                wrapped = true;
             }
             else if (pos.x > maxX)
             {
                 pos.x = 0 - size.x;
+                wrapped = true;
             }
             if (pos.y < 0 - size.y)
             {
                 pos.y = maxY;
+                wrapped = true;
             }
             else if (pos.y > maxY)
             {
                 pos.y = 0 - size.y;
+                wrapped = true;
             }
+            return wrapped;
         }
         public virtual Rectangle getBound()
         {
