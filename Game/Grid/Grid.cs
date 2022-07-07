@@ -9,18 +9,21 @@ namespace Cycles_Game.Game.Grid
     {
         public int width { get; }
         public int height { get; }
-        private Cell[,] cells;
+        private Cell[,] current;
+        private Cell[,] next;
         public int cellSize { get; }
         public Grid(int width, int height, int cellSize)
         {
             this.width = width;
             this.height = height;
             this.cellSize = cellSize;
-            cells = new Cell[width, height];
+            current = new Cell[width, height];
+            next = new Cell[width, height];
         }
         public void Update()
         {
-            foreach (Cell cell in cells)
+            next = new Cell[width, height];
+            foreach (Cell cell in current)
             {
                 if (cell != null)
                 {
@@ -28,14 +31,25 @@ namespace Cycles_Game.Game.Grid
                     cell.Draw(this);
                 }
             }
+            //var temp = next;
+            //next = new Cell[width, height];
+            current = next;
         }
         public Cell GetCell(int x, int y)
         {
-            return cells[x % width, y % height];
+            return current[x % width, y % height];
+        }
+        public void AddCell(int x, int y, Cell newCell)
+        {
+            current[x % width, y % height] = newCell;
+        }
+        public void AddCell(Point pos, Cell newCell)
+        {
+            AddCell(pos.x, pos.y, newCell);
         }
         public void SetCell(int x, int y, Cell newCell)
         {
-            cells[x % width, y % height] = newCell;
+            next[x % width, y % height] = newCell;
         }
         public void SetCell(Point pos, Cell newCell)
         {
