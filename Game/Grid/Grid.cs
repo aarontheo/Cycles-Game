@@ -1,5 +1,5 @@
 using Raylib_cs;
-using Cycles_Game.Game.Casting;
+
 namespace Cycles_Game.Game.Grid
 {
     /// <summary>
@@ -22,34 +22,59 @@ namespace Cycles_Game.Game.Grid
         }
         public void Update()
         {
-            next = new Cell[width, height];
-            foreach (Cell cell in current)
+            for (int x = 0;x < width;x++)
             {
-                if (cell != null)
+                for (int y = 0; y < height;y++)
                 {
-                    cell.Update(this);
-                    cell.Draw(this);
+                    var cell = current[x, y];
+                    if (cell != null)
+                    {
+                        cell.Update(this,x,y);
+                    }
                 }
             }
             //var temp = next;
             //next = new Cell[width, height];
             current = next;
         }
+        public void Draw()
+        {
+            for (int x = 0;x < width;x++)
+            {
+                for (int y = 0; y < height;y++)
+                {
+                    var cell = next[x, y];
+                    if (cell != null)
+                    {
+                        cell.Draw(this,x,y);
+                    }
+                }
+            }
+        }
+        private int WrapInt(int a,int max)
+        {
+            return ((a % max) + max) % max;
+        }
         public Cell GetCell(int x, int y)
         {
-            return current[x % width, y % height];
+            return current[WrapInt(x,width), WrapInt(y,height)];
         }
-        public void AddCell(int x, int y, Cell newCell)
+        public Cell GetCell(Point pos)
         {
-            current[x % width, y % height] = newCell;
+            return GetCell(pos.x, pos.y);
         }
-        public void AddCell(Point pos, Cell newCell)
+        public void AddCell(int x,int y,Cell newCell)
         {
-            AddCell(pos.x, pos.y, newCell);
+            current[WrapInt(y,width), WrapInt(y,height)] = newCell;
         }
+        // public void AddCell(Point pos, Cell newCell)
+        // {
+        //     AddCell(pos.x, pos.y, newCell);
+        // }
         public void SetCell(int x, int y, Cell newCell)
         {
-            next[x % width, y % height] = newCell;
+            //Console.WriteLine($"Writing to Cell at X:{WrapInt(x,width)}, Y:{WrapInt(y,height)}");
+            next[WrapInt(x,width), WrapInt(y,height)] = newCell;
         }
         public void SetCell(Point pos, Cell newCell)
         {

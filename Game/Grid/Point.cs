@@ -1,6 +1,6 @@
 using System;
 
-namespace Cycles_Game.Game.Casting
+namespace Cycles_Game.Game.Grid
 {
     /// <summary>
     /// A Point is essentially a Vect that deals in ints rather than floats.
@@ -19,10 +19,6 @@ namespace Cycles_Game.Game.Casting
         {
             return new Point(a.x + b.x, a.y + b.y);
         }
-        public static Point operator +(Point a,Vect b)
-        {
-            return new Point(a.x+((int)Math.Round(b.x)),a.y+((int)Math.Round(b.y)));
-        }
         public static Point operator *(Point a, int b)
         {
             return new Point(a.x * b, a.y * b);
@@ -38,14 +34,6 @@ namespace Cycles_Game.Game.Casting
         public static bool operator !=(Point a,Point b)
         {
             return !(a == b);
-        }
-        public static Vect operator *(Point a, float b)
-        {
-            return new Vect(a.x * b, a.y * b);
-        }
-        public Vect toVect()
-        {
-            return new Vect(x, y);
         }
     }
 }

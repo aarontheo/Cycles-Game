@@ -1,6 +1,6 @@
 using System;
 using Raylib_cs;
-using Cycles_Game.Game.Casting;
+using Cycles_Game.Game.Grid;
 
 namespace Cycles_Game.Game
 {
@@ -26,7 +26,7 @@ namespace Cycles_Game.Game
             }
             return dir;
         }
-        public Vect GetDirection()
+        public Point GetDirection()
         {
             int dx = 0;
             int dy = 0;
@@ -47,7 +47,7 @@ namespace Cycles_Game.Game
             {
                 dy += 1;
             }
-            return new Vect(dx, dy);
+            return new Point(dx, dy);
         }
     }
 }

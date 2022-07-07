@@ -7,15 +7,17 @@ using Raylib_cs;
 int width = 400;
 int height = 400;
 int cellSize = 10;
-int FPS = 10;
+int FPS = 1;
 Color bgColor = Color.BLACK;
 string title = "Cycles";
 
-VideoService videoService = new VideoService(width,height,bgColor,title,FPS);
+VideoService videoService = new VideoService(width, height, bgColor, title, FPS);
 Director director = new Director(videoService);
 
-Grid grid = new Grid(height/cellSize,width/cellSize,cellSize);
+Grid grid = new Grid(height / cellSize, width / cellSize, cellSize);
 
-Cycle cycle = new Cycle(20, 20, Color.BLUE,new KeyboardKey[]{KeyboardKey.KEY_W, KeyboardKey.KEY_A, KeyboardKey.KEY_S, KeyboardKey.KEY_D});
-grid.AddCell(20, 20, cycle);
+Cycle cyclea = new Cycle(Color.BLUE, new KeyboardKey[] { KeyboardKey.KEY_W, KeyboardKey.KEY_A, KeyboardKey.KEY_S, KeyboardKey.KEY_D });
+Cycle cycleb = new Cycle(Color.ORANGE, new KeyboardKey[] { KeyboardKey.KEY_UP, KeyboardKey.KEY_LEFT, KeyboardKey.KEY_DOWN, KeyboardKey.KEY_RIGHT });
+grid.AddCell(20, 20, cyclea);
+//grid.AddCell(20, 30, cycleb);
 director.StartGame(grid);
