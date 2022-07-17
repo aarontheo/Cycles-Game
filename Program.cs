@@ -18,6 +18,5 @@ Grid grid = new Grid(height / cellSize, width / cellSize, cellSize);
 
 Cycle cyclea = new Cycle(Color.BLUE, new KeyboardKey[] { KeyboardKey.KEY_W, KeyboardKey.KEY_A, KeyboardKey.KEY_S, KeyboardKey.KEY_D });
 Cycle cycleb = new Cycle(Color.ORANGE, new KeyboardKey[] { KeyboardKey.KEY_UP, KeyboardKey.KEY_LEFT, KeyboardKey.KEY_DOWN, KeyboardKey.KEY_RIGHT });
-grid.AddCell(20, 20, cyclea);
-//grid.AddCell(20, 30, cycleb);
+
 director.StartGame(grid);
