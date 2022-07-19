@@ -1,8 +1,8 @@
 using System;
 using Raylib_cs;
 using Cycles_Game.Services;
+using Cycles_Game.Game.Casting;
 
-using Cycles_Game.Game.Grid;
 namespace Cycles_Game.Directing
 {
     public class Director
@@ -13,7 +13,7 @@ namespace Cycles_Game.Directing
         {
             this.videoService = videoService;
         }
-        public void StartGame(Grid grid)
+        public void StartGame(Cast cast,int maxX, int maxY, int cellSize)
         {
             isRunning = true;
             videoService.OpenWindow();
@@ -21,9 +21,9 @@ namespace Cycles_Game.Directing
             {
                 if (isRunning)
                 {
-                    grid.Update();
+                    cast.Update(maxX/cellSize,maxY/cellSize);
                     videoService.ClearBuffer();
-                    grid.Draw();
+                    cast.Draw(cellSize);
                     videoService.FlushBuffer();
                 }
             }

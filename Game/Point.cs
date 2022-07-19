@@ -1,6 +1,6 @@
 using System;
 
-namespace Cycles_Game.Game.Grid
+namespace Cycles_Game.Game
 {
     /// <summary>
     /// A Point is essentially a Vect that deals in ints rather than floats.
@@ -15,7 +15,7 @@ namespace Cycles_Game.Game.Grid
             this.y = y;
         }
 
-        public static Point operator +(Point a,Point b)
+        public static Point operator +(Point a, Point b)
         {
             return new Point(a.x + b.x, a.y + b.y);
         }
@@ -23,7 +23,7 @@ namespace Cycles_Game.Game.Grid
         {
             return new Point(a.x * b, a.y * b);
         }
-        public static bool operator ==(Point a,Point b)
+        public static bool operator ==(Point a, Point b)
         {
             if (a.x == b.x & a.y == b.y)
             {
@@ -31,7 +31,7 @@ namespace Cycles_Game.Game.Grid
             }
             return false;
         }
-        public static bool operator !=(Point a,Point b)
+        public static bool operator !=(Point a, Point b)
         {
             return !(a == b);
         }

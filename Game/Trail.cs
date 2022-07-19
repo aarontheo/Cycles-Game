@@ -1,31 +1,19 @@
 using System;
 using Raylib_cs;
+using Cycles_Game.Game.Casting;
 
-namespace Cycles_Game.Game.Grid.CellTypes
+namespace Cycles_Game.Game
 {
-    public class Trail : Cell
+    public class Trail : Actor
     {
-        short life;
+        byte life;
         public Trail(Color color, byte lifetime) : base(color)
         {
             this.life = lifetime;
         }
-        public override void Update(Grid grid, int x, int y)
+        public override void Draw()
         {
-            if (life == 0)
-            {
-                //grid.SetCell(x, y, null);
-            }
-            else
-            {
-                base.Update(grid, x, y);
-            }
-            life--;
-        }
-        public override void Draw(Grid grid, int x, int y)
-        {
-            color.a = ((byte)(life + 50));
-            base.Draw(grid, x, y);
+            
         }
     }
 }

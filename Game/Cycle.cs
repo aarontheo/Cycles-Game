@@ -1,16 +1,21 @@
 using System;
 using Raylib_cs;
+using Cycles_Game.Game.Casting;
+using Cycles_Game.Services;
 
-namespace Cycles_Game.Game.Grid.CellTypes
+namespace Cycles_Game.Game
 {
-    public class Cycle : Cell
+    public class Cycle : Actor
     {
-        public Point vel = new Point(0, -1);
-        private KeyboardKey[] keys;
-        /// <param name="keys">four directional keys, in the order WASD</param>
-        public Cycle(Color color, KeyboardKey[] keys) : base(color)
+        private InputService inputService;
+        public Cycle(Color color, KeyboardKey up, KeyboardKey left, KeyboardKey down, KeyboardKey right) : base(color)
         {
-            this.keys = keys;
+            this.inputService = new InputService(left, right, up, down);
+        }
+        public override void Update(int maxX, int maxY)
+        {
+            this.vel = inputService.GetDirectionEx();
+            base.Update(maxX, maxY);
         }
     }
 }

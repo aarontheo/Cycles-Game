@@ -88,5 +88,12 @@ namespace Cycles_Game.Game.Casting
             a.Draw();
         }
     }
+    public void Draw(int cellSize)
+    {
+        foreach (IActor a in GetActors())
+        {
+            a.Draw(cellSize);
+        }
+    }
 }
 }

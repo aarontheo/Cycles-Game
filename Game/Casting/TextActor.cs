@@ -8,15 +8,15 @@ namespace Cycles_Game.Game.Casting
 {
     public class TextActor : IActor
     {
-        public Vect pos;
+        public Point pos;
         public int fontSize { get; set; }
-        public Vect vel = new Vect(0, 0);
+        public Point vel = new Point(0, 0);
         public string text { get; set; }
         public double heading = 0;
         public Color color;
         public TextActor(int x = 0, int y = 0, string text = "@", int fontSize = 30)
         {
-            pos = new Vect(x, y);
+            pos = new Point(x, y);
             this.text = text;
             this.fontSize = fontSize;
             this.color = new Color(200, 200, 200, 255);
