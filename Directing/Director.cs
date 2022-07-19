@@ -22,10 +22,14 @@ namespace Cycles_Game.Directing
                 if (isRunning)
                 {
                     cast.Update(maxX/cellSize,maxY/cellSize);
-                    videoService.ClearBuffer();
-                    cast.Draw(cellSize);
-                    videoService.FlushBuffer();
+                    if (!cast.allAlive())
+                    {
+                        isRunning = false;
+                    }
                 }
+                videoService.ClearBuffer();
+                cast.Draw(cellSize);
+                videoService.FlushBuffer();
             }
             videoService.CloseWindow();
         }

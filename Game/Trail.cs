@@ -6,14 +6,17 @@ namespace Cycles_Game.Game
 {
     public class Trail : Actor
     {
-        byte life;
-        public Trail(Color color, byte lifetime) : base(color)
+        public int lifetime;
+        private int maxLife;
+        public Trail(int x, int y, Color color, int lifetime) : base(color,x,y)
         {
-            this.life = lifetime;
+            this.lifetime = lifetime;
+            this.maxLife = lifetime;
         }
-        public override void Draw()
+        public void Update()
         {
-            
+            //this.color.a = (byte)(maxLife/lifetime*255);
+            this.lifetime--;
         }
     }
 }

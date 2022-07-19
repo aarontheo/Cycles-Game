@@ -12,6 +12,7 @@ namespace Cycles_Game.Game.Casting
         public Point pos;
         public Point vel = new Point(0, 0);
         public Color color;
+        public bool alive = true;
         public Actor(Color color, int x = 0, int y = 0, int width = 1, int height = 1)
         {
             this.color = color;
@@ -67,7 +68,7 @@ namespace Cycles_Game.Game.Casting
             //return new Rectangle(pos.x, pos.y, fontSize, fontSize);
             return new Rectangle(pos.x, pos.y, size.x, size.y);
         }
-        public bool isColliding(IActor b)
+        public virtual bool isColliding(IActor b)
         {
             return Raylib.CheckCollisionRecs(this.getBound(), b.getBound());
         }

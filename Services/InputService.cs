@@ -7,65 +7,82 @@ namespace Cycles_Game.Services
 {
     public class InputService
     {
-        private Point p = new Point(1,1);
-        //the keys array has the 4 directional keys, in order WASD, or up/left/down/right
-        private KeyboardKey[] keys = new KeyboardKey[4];
-        public InputService(KeyboardKey left,KeyboardKey right,KeyboardKey up,KeyboardKey down)
+        public KeyboardKey left;
+        public KeyboardKey right;
+        public InputService(KeyboardKey left,KeyboardKey right)
         {
-            keys[0] = up;
-            keys[1] = left;
-            keys[2] = down;
-            keys[3] = right;
+            this.left = left;
+            this.right = right;
         }
-        public Point GetDirection()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns>returns -1 for left, 1 for right, and 0 for no input.</returns>
+        public int GetLR()
         {
-            int dx = 0;
-            int dy = 0;
-            if (Raylib.IsKeyDown(keys[1]))
+            int res = 0;
+            if (Raylib.IsKeyPressed(right))
             {
-                dx -= 1;
+                res += 1;
             }
-            if (Raylib.IsKeyDown(keys[3]))
+            if (Raylib.IsKeyPressed(left))
             {
-                dx += 1;
+                res += -1;
             }
-            //re-enable this to allow up and down motion
-            if (Raylib.IsKeyDown(keys[0]))
-            {
-                dy -= 1;
-            }
-            if (Raylib.IsKeyDown(keys[2]))
-            {
-                dy += 1;
-            }
-            return new Point(dx, dy);
+            //Console.WriteLine(res);
+            return res;
         }
-        public Point GetDirectionEx()
-        {
-            int dx = 0;
-            int dy = 0;
-            if (Raylib.IsKeyDown(keys[1]))
-            {
-                dx -= 1;
-                dy = 0;
-            }
-            if (Raylib.IsKeyDown(keys[3]))
-            {
-                dx += 1;
-                dy = 0;
-            }
-            //re-enable this to allow up and down motion
-            if (Raylib.IsKeyDown(keys[0]))
-            {
-                dy -= 1;
-                dx = 0;
-            }
-            if (Raylib.IsKeyDown(keys[2]))
-            {
-                dy += 1;
-                dx = 0;
-            }
-            return new Point(dx, dy);
-        }
+        // public Point GetDirection()
+        // {
+        //     int dx = 0;
+        //     int dy = 0;
+        //     if (Raylib.IsKeyDown(keys[1]))
+        //     {
+        //         dx -= 1;
+        //     }
+        //     if (Raylib.IsKeyDown(keys[3]))
+        //     {
+        //         dx += 1;
+        //     }
+        //     //re-enable this to allow up and down motion
+        //     if (Raylib.IsKeyDown(keys[0]))
+        //     {
+        //         dy -= 1;
+        //     }
+        //     if (Raylib.IsKeyDown(keys[2]))
+        //     {
+        //         dy += 1;
+        //     }
+        //     return new Point(dx, dy);
+        // }
+        // public Point GetDirectionEx()
+        // {
+        //     int dx = 0;
+        //     int dy = 0;
+        //     if (Raylib.IsKeyDown(keys[1]))
+        //     {
+        //         dx -= 1;
+        //         dy = 0;
+        //     }
+        //     if (Raylib.IsKeyDown(keys[3]))
+        //     {
+        //         dx += 1;
+        //         dy = 0;
+        //     }
+        //     //re-enable this to allow up and down motion
+        //     if (Raylib.IsKeyDown(keys[0]))
+        //     {
+        //         dy -= 1;
+        //         dx = 0;
+        //     }
+        //     if (Raylib.IsKeyDown(keys[2]))
+        //     {
+        //         dy += 1;
+        //         dx = 0;
+        //     }
+        //     return new Point(dx, dy);
+        // }
     }
 }
